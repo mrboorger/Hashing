@@ -1,0 +1,31 @@
+const int maxn = 5e5 + 33;
+
+int m = 998223871;
+int p = 37;
+
+int h[maxn];
+int st[maxn];
+
+void hashing(const string & s)
+{
+    h[0] = int(s[0] - '0') + 1;
+    for(int i = 1; i < int(s.size()); ++i)
+        h[i] = (1ll * h[i - 1] * p + int(s[i] - '0') + 1) % m;
+    return;
+}
+
+int gethash(int l, int r)
+{
+    int ans = h[r];
+    if (l > 0) ans -= (1ll * st[r - l + 1] * h[l]);
+    if (ans < 0) ans += m;
+    return ans;
+}
+
+signed main()
+{
+    st[0] = 1;
+    for(int i = 1; i < maxn; ++i)
+        st[i] = (1ll * st[i - 1] * p) % m;
+    return 0;
+}
