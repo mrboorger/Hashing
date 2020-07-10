@@ -17,7 +17,7 @@ void hashing(const string & s)
 int gethash(int l, int r)
 {
     int ans = h[r];
-    if (l > 0) ans -= (1ll * st[r - l + 1] * h[l]);
+    if (l > 0) ans -= (1ll * st[r - l + 1] * h[l - 1]);
     if (ans < 0) ans += m;
     return ans;
 }
