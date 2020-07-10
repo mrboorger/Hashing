@@ -8,9 +8,9 @@ int st[maxn];
 
 void hashing(const string & s)
 {
-    h[0] = int(s[0] - '0') + 1;
+    h[0] = int(s[0] - 'a') + 1;
     for(int i = 1; i < int(s.size()); ++i)
-        h[i] = (1ll * h[i - 1] * p + int(s[i] - '0') + 1) % m;
+        h[i] = (1ll * h[i - 1] * p + int(s[i] - 'a') + 1) % m;
     return;
 }
 
